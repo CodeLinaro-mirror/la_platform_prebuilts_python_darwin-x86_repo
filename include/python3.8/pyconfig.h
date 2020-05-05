@@ -129,13 +129,13 @@
 #define HAVE_CLOCK 1
 
 /* Define to 1 if you have the `clock_getres' function. */
-#define HAVE_CLOCK_GETRES 1
+/* #undef HAVE_CLOCK_GETRES */
 
 /* Define to 1 if you have the `clock_gettime' function. */
-#define HAVE_CLOCK_GETTIME 1
+/* #undef HAVE_CLOCK_GETTIME */
 
 /* Define to 1 if you have the `clock_settime' function. */
-#define HAVE_CLOCK_SETTIME 1
+/* #undef HAVE_CLOCK_SETTIME */
 
 /* Define if the C compiler supports computed gotos. */
 #define HAVE_COMPUTED_GOTOS 1
@@ -316,7 +316,7 @@
 #define HAVE_EXPM1 1
 
 /* Define to 1 if you have the `faccessat' function. */
-#define HAVE_FACCESSAT 1
+/* #undef HAVE_FACCESSAT */
 
 /* Define if you have the 'fchdir' function. */
 #define HAVE_FCHDIR 1
@@ -325,13 +325,13 @@
 #define HAVE_FCHMOD 1
 
 /* Define to 1 if you have the `fchmodat' function. */
-#define HAVE_FCHMODAT 1
+/* #undef HAVE_FCHMODAT */
 
 /* Define to 1 if you have the `fchown' function. */
 #define HAVE_FCHOWN 1
 
 /* Define to 1 if you have the `fchownat' function. */
-#define HAVE_FCHOWNAT 1
+/* #undef HAVE_FCHOWNAT */
 
 /* Define to 1 if you have the <fcntl.h> header file. */
 #define HAVE_FCNTL_H 1
@@ -340,7 +340,7 @@
 /* #undef HAVE_FDATASYNC */
 
 /* Define to 1 if you have the `fdopendir' function. */
-#define HAVE_FDOPENDIR 1
+/* #undef HAVE_FDOPENDIR */
 
 /* Define to 1 if you have the `fdwalk' function. */
 /* #undef HAVE_FDWALK */
@@ -370,7 +370,7 @@
 #define HAVE_FSEEKO 1
 
 /* Define to 1 if you have the `fstatat' function. */
-#define HAVE_FSTATAT 1
+/* #undef HAVE_FSTATAT */
 
 /* Define to 1 if you have the `fstatvfs' function. */
 #define HAVE_FSTATVFS 1
@@ -391,7 +391,7 @@
 #define HAVE_FTRUNCATE 1
 
 /* Define to 1 if you have the `futimens' function. */
-#define HAVE_FUTIMENS 1
+/* #undef HAVE_FUTIMENS */
 
 /* Define to 1 if you have the `futimes' function. */
 #define HAVE_FUTIMES 1
@@ -425,7 +425,7 @@
 #define HAVE_GETC_UNLOCKED 1
 
 /* Define to 1 if you have the `getentropy' function. */
-#define HAVE_GETENTROPY 1
+/* #undef HAVE_GETENTROPY */
 
 /* Define to 1 if you have the `getgrgid_r' function. */
 #define HAVE_GETGRGID_R 1
@@ -618,7 +618,7 @@
 #define HAVE_LINK 1
 
 /* Define to 1 if you have the `linkat' function. */
-#define HAVE_LINKAT 1
+/* #undef HAVE_LINKAT */
 
 /* Define to 1 if you have the <linux/can/bcm.h> header file. */
 /* #undef HAVE_LINUX_CAN_BCM_H */
@@ -687,7 +687,7 @@
 /* #undef HAVE_MEMRCHR */
 
 /* Define to 1 if you have the `mkdirat' function. */
-#define HAVE_MKDIRAT 1
+/* #undef HAVE_MKDIRAT */
 
 /* Define to 1 if you have the `mkfifo' function. */
 #define HAVE_MKFIFO 1
@@ -726,7 +726,7 @@
 #define HAVE_NICE 1
 
 /* Define to 1 if you have the `openat' function. */
-#define HAVE_OPENAT 1
+/* #undef HAVE_OPENAT */
 
 /* Define to 1 if you have the `openpty' function. */
 #define HAVE_OPENPTY 1
@@ -819,7 +819,7 @@
 #define HAVE_READLINK 1
 
 /* Define to 1 if you have the `readlinkat' function. */
-#define HAVE_READLINKAT 1
+/* #undef HAVE_READLINKAT */
 
 /* Define to 1 if you have the `readv' function. */
 #define HAVE_READV 1
@@ -828,7 +828,7 @@
 #define HAVE_REALPATH 1
 
 /* Define to 1 if you have the `renameat' function. */
-#define HAVE_RENAMEAT 1
+/* #undef HAVE_RENAMEAT */
 
 /* Define if readline supports append_history */
 /* #undef HAVE_RL_APPEND_HISTORY */
@@ -1081,7 +1081,7 @@
 #define HAVE_SYMLINK 1
 
 /* Define to 1 if you have the `symlinkat' function. */
-#define HAVE_SYMLINKAT 1
+/* #undef HAVE_SYMLINKAT */
 
 /* Define to 1 if you have the `sync' function. */
 #define HAVE_SYNC 1
@@ -1262,7 +1262,7 @@
 #define HAVE_UNISTD_H 1
 
 /* Define to 1 if you have the `unlinkat' function. */
-#define HAVE_UNLINKAT 1
+/* #undef HAVE_UNLINKAT */
 
 /* Define to 1 if you have the `unsetenv' function. */
 #define HAVE_UNSETENV 1
@@ -1276,7 +1276,7 @@
 #define HAVE_UTIL_H 1
 
 /* Define to 1 if you have the `utimensat' function. */
-#define HAVE_UTIMENSAT 1
+/* #undef HAVE_UTIMENSAT */
 
 /* Define to 1 if you have the `utimes' function. */
 #define HAVE_UTIMES 1

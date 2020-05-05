@@ -6,23 +6,25 @@ build_time_vars = {'ABIFLAGS': '',
  'ANDROID_API_LEVEL': 0,
  'AR': 'ar',
  'ARFLAGS': 'rcs',
- 'BASECFLAGS': '-fno-strict-aliasing -Wsign-compare -Wunreachable-code',
+ 'BASECFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code',
  'BASECPPFLAGS': '-IObjects -IInclude -IPython',
  'BASEMODLIBS': '',
  'BINDIR': '/tmpfs/src/out/install/bin',
  'BINLIBDEST': '/tmpfs/src/out/install/lib/python3.8',
  'BLDLIBRARY': '-L. -lpython3.8',
- 'BLDSHARED': 'gcc -mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 '
+ 'BLDSHARED': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+              '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability '
               "-s -Wl,-rpath,'@loader_path/../lib' -bundle -undefined "
               'dynamic_lookup',
  'BUILDEXE': '.exe',
  'BUILDPYTHON': 'python.exe',
  'BUILD_GNU_TYPE': 'x86_64-apple-darwin18.7.0',
  'BYTESTR_DEPS': '\\',
- 'CC': 'gcc -mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 -s '
+ 'CC': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+       '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability -s '
        "-Wl,-rpath,'@loader_path/../lib'",
  'CCSHARED': '',
- 'CFLAGS': '-fno-strict-aliasing -Wsign-compare -Wunreachable-code -DNDEBUG -g '
+ 'CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g '
            '-fwrapv -O3 -Wall',
  'CFLAGSFORSHARED': '',
  'CFLAGS_ALIASING': '-fno-strict-aliasing',
@@ -30,12 +32,27 @@ build_time_vars = {'ABIFLAGS': '',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
  'CONFIGURE_CFLAGS': '',
- 'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Werror=implicit-function-declaration',
+ 'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
+                            '-Wno-unused-parameter '
+                            '-Wno-missing-field-initializers '
+                            '-Wstrict-prototypes '
+                            '-Werror=implicit-function-declaration',
  'CONFIGURE_CPPFLAGS': '',
  'CONFIGURE_LDFLAGS': '',
  'CONFIGURE_LDFLAGS_NODIST': '',
- 'CONFIG_ARGS': "'--prefix=/tmpfs/src/out/install' '--enable-shared' 'CC=gcc "
-                '-mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 -s '
+ 'CONFIG_ARGS': "'--prefix=/tmpfs/src/out/install' '--enable-shared' "
+                "'ac_cv_func_utimensat=no' 'ac_cv_func_futimens=no' "
+                "'ac_cv_func_getentropy=no' 'ac_cv_func_clock_getres=no' "
+                "'ac_cv_func_clock_gettime=no' 'ac_cv_func_clock_settime=no' "
+                "'ac_cv_func_fstatat=no' 'ac_cv_func_faccessat=no' "
+                "'ac_cv_func_fchmodat=no' 'ac_cv_func_fchownat=no' "
+                "'ac_cv_func_linkat=no' 'ac_cv_func_fdopendir=no' "
+                "'ac_cv_func_mkdirat=no' 'ac_cv_func_renameat=no' "
+                "'ac_cv_func_unlinkat=no' 'ac_cv_func_readlinkat=no' "
+                "'ac_cv_func_symlinkat=no' 'ac_cv_func_openat=no' 'CC=cc "
+                '-Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+                '-DMACOSX_DEPLOYMENT_TARGET=10.9 '
+                '-Werror=unguarded-availability -s '
                 "-Wl,-rpath,'\\''@loader_path/../lib'\\'''",
  'CONFINCLUDEDIR': '/tmpfs/src/out/install/include',
  'CONFINCLUDEPY': '/tmpfs/src/out/install/include/python3.8',
@@ -46,7 +63,8 @@ build_time_vars = {'ABIFLAGS': '',
                             'report"',
  'CPPFLAGS': '-IObjects -IInclude -IPython -I. '
              '-I/tmpfs/src/git/cpython3/Include',
- 'CXX': 'g++ -mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 -s '
+ 'CXX': 'c++ -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+        '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability -s '
         "-Wl,-rpath,'@loader_path/../lib'",
  'DESTDIRS': '/tmpfs/src/out/install /tmpfs/src/out/install/lib '
              '/tmpfs/src/out/install/lib/python3.8 '
@@ -116,9 +134,9 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_CHOWN': 1,
  'HAVE_CHROOT': 1,
  'HAVE_CLOCK': 1,
- 'HAVE_CLOCK_GETRES': 1,
- 'HAVE_CLOCK_GETTIME': 1,
- 'HAVE_CLOCK_SETTIME': 1,
+ 'HAVE_CLOCK_GETRES': 0,
+ 'HAVE_CLOCK_GETTIME': 0,
+ 'HAVE_CLOCK_SETTIME': 0,
  'HAVE_COMPUTED_GOTOS': 1,
  'HAVE_CONFSTR': 1,
  'HAVE_CONIO_H': 0,
@@ -174,15 +192,15 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_EXPLICIT_BZERO': 0,
  'HAVE_EXPLICIT_MEMSET': 0,
  'HAVE_EXPM1': 1,
- 'HAVE_FACCESSAT': 1,
+ 'HAVE_FACCESSAT': 0,
  'HAVE_FCHDIR': 1,
  'HAVE_FCHMOD': 1,
- 'HAVE_FCHMODAT': 1,
+ 'HAVE_FCHMODAT': 0,
  'HAVE_FCHOWN': 1,
- 'HAVE_FCHOWNAT': 1,
+ 'HAVE_FCHOWNAT': 0,
  'HAVE_FCNTL_H': 1,
  'HAVE_FDATASYNC': 0,
- 'HAVE_FDOPENDIR': 1,
+ 'HAVE_FDOPENDIR': 0,
  'HAVE_FDWALK': 0,
  'HAVE_FEXECVE': 0,
  'HAVE_FINITE': 1,
@@ -192,14 +210,14 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_FPATHCONF': 1,
  'HAVE_FSEEK64': 0,
  'HAVE_FSEEKO': 1,
- 'HAVE_FSTATAT': 1,
+ 'HAVE_FSTATAT': 0,
  'HAVE_FSTATVFS': 1,
  'HAVE_FSYNC': 1,
  'HAVE_FTELL64': 0,
  'HAVE_FTELLO': 1,
  'HAVE_FTIME': 1,
  'HAVE_FTRUNCATE': 1,
- 'HAVE_FUTIMENS': 1,
+ 'HAVE_FUTIMENS': 0,
  'HAVE_FUTIMES': 1,
  'HAVE_FUTIMESAT': 0,
  'HAVE_GAI_STRERROR': 1,
@@ -210,7 +228,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_GCC_UINT128_T': 1,
  'HAVE_GETADDRINFO': 1,
  'HAVE_GETC_UNLOCKED': 1,
- 'HAVE_GETENTROPY': 1,
+ 'HAVE_GETENTROPY': 0,
  'HAVE_GETGRGID_R': 1,
  'HAVE_GETGRNAM_R': 1,
  'HAVE_GETGROUPLIST': 1,
@@ -273,7 +291,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_LIBSENDFILE': 0,
  'HAVE_LIBUTIL_H': 0,
  'HAVE_LINK': 1,
- 'HAVE_LINKAT': 1,
+ 'HAVE_LINKAT': 0,
  'HAVE_LINUX_CAN_BCM_H': 0,
  'HAVE_LINUX_CAN_H': 0,
  'HAVE_LINUX_CAN_RAW_FD_FRAMES': 0,
@@ -296,7 +314,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_MEMFD_CREATE': 0,
  'HAVE_MEMORY_H': 1,
  'HAVE_MEMRCHR': 0,
- 'HAVE_MKDIRAT': 1,
+ 'HAVE_MKDIRAT': 0,
  'HAVE_MKFIFO': 1,
  'HAVE_MKFIFOAT': 0,
  'HAVE_MKNOD': 1,
@@ -309,7 +327,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_NETPACKET_PACKET_H': 0,
  'HAVE_NET_IF_H': 1,
  'HAVE_NICE': 1,
- 'HAVE_OPENAT': 1,
+ 'HAVE_OPENAT': 0,
  'HAVE_OPENPTY': 1,
  'HAVE_PATHCONF': 1,
  'HAVE_PAUSE': 1,
@@ -340,10 +358,10 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_PWRITEV': 0,
  'HAVE_PWRITEV2': 0,
  'HAVE_READLINK': 1,
- 'HAVE_READLINKAT': 1,
+ 'HAVE_READLINKAT': 0,
  'HAVE_READV': 1,
  'HAVE_REALPATH': 1,
- 'HAVE_RENAMEAT': 1,
+ 'HAVE_RENAMEAT': 0,
  'HAVE_RL_APPEND_HISTORY': 0,
  'HAVE_RL_CATCH_SIGNAL': 0,
  'HAVE_RL_COMPLETION_APPEND_CHARACTER': 1,
@@ -427,7 +445,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_STRUCT_STAT_ST_RDEV': 1,
  'HAVE_STRUCT_TM_TM_ZONE': 1,
  'HAVE_SYMLINK': 1,
- 'HAVE_SYMLINKAT': 1,
+ 'HAVE_SYMLINKAT': 0,
  'HAVE_SYNC': 1,
  'HAVE_SYSCONF': 1,
  'HAVE_SYSEXITS_H': 1,
@@ -486,11 +504,11 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_UCS4_TCL': 0,
  'HAVE_UNAME': 1,
  'HAVE_UNISTD_H': 1,
- 'HAVE_UNLINKAT': 1,
+ 'HAVE_UNLINKAT': 0,
  'HAVE_UNSETENV': 1,
  'HAVE_USABLE_WCHAR_T': 0,
  'HAVE_UTIL_H': 1,
- 'HAVE_UTIMENSAT': 1,
+ 'HAVE_UTIMENSAT': 0,
  'HAVE_UTIMES': 1,
  'HAVE_UTIME_H': 1,
  'HAVE_UUID_CREATE': 0,
@@ -527,15 +545,18 @@ build_time_vars = {'ABIFLAGS': '',
  'INSTSONAME': 'libpython3.8.dylib',
  'IO_H': 'Modules/_io/_iomodule.h',
  'IO_OBJS': '\\',
- 'LDCXXSHARED': 'g++ -mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 '
-                "-s -Wl,-rpath,'@loader_path/../lib' -bundle -undefined "
+ 'LDCXXSHARED': 'c++ -Wno-unused-command-line-argument '
+                '-mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 '
+                '-Werror=unguarded-availability -s '
+                "-Wl,-rpath,'@loader_path/../lib' -bundle -undefined "
                 'dynamic_lookup',
  'LDFLAGS': '',
  'LDFLAGS_NODIST': '',
  'LDLIBRARY': 'libpython3.8.dylib',
  'LDLIBRARYDIR': '',
- 'LDSHARED': 'gcc -mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 -s '
-             "-Wl,-rpath,'@loader_path/../lib' -bundle -undefined "
+ 'LDSHARED': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+             '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability '
+             "-s -Wl,-rpath,'@loader_path/../lib' -bundle -undefined "
              'dynamic_lookup',
  'LDVERSION': '3.8',
  'LIBC': '',
@@ -553,21 +574,22 @@ build_time_vars = {'ABIFLAGS': '',
  'LIBRARY_OBJS_OMIT_FROZEN': '\\',
  'LIBS': '-ldl   -framework CoreFoundation',
  'LIBSUBDIRS': 'tkinter tkinter/test tkinter/test/test_tkinter \\',
- 'LINKCC': 'gcc -mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 -s '
+ 'LINKCC': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+           '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability -s '
            "-Wl,-rpath,'@loader_path/../lib'",
  'LINKFORSHARED': '-Wl,-stack_size,1000000  -framework CoreFoundation',
  'LIPO_32BIT_FLAGS': '',
  'LLVM_PROF_ERR': 'no',
- 'LLVM_PROF_FILE': 'LLVM_PROFILE_FILE="code-%p.profclangr"',
- 'LLVM_PROF_MERGER': '/usr/bin/xcrun llvm-profdata merge '
-                     '-output=code.profclangd *.profclangr',
+ 'LLVM_PROF_FILE': '',
+ 'LLVM_PROF_MERGER': '',
  'LN': 'ln',
  'LOCALMODLIBS': '',
  'MACHDEP': 'darwin',
  'MACHDEP_OBJS': '',
  'MACHDESTLIB': '/tmpfs/src/out/install/lib/python3.8',
  'MACOSX_DEPLOYMENT_TARGET': '10.14',
- 'MAINCC': 'gcc -mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 -s '
+ 'MAINCC': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+           '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability -s '
            "-Wl,-rpath,'@loader_path/../lib'",
  'MAJOR_IN_MKDEV': 0,
  'MAJOR_IN_SYSMACROS': 0,
@@ -611,8 +633,8 @@ build_time_vars = {'ABIFLAGS': '',
  'PACKAGE_VERSION': 0,
  'PARSER_HEADERS': '\\',
  'PARSER_OBJS': '\\ Parser/myreadline.o Parser/parsetok.o Parser/tokenizer.o',
- 'PGO_PROF_GEN_FLAG': '-fprofile-instr-generate',
- 'PGO_PROF_USE_FLAG': '-fprofile-instr-use=code.profclangd',
+ 'PGO_PROF_GEN_FLAG': '',
+ 'PGO_PROF_USE_FLAG': '',
  'POBJS': '\\',
  'POSIX_SEMAPHORES_NOT_ENABLED': 0,
  'PROFILE_TASK': '-m test --pgo',
@@ -631,20 +653,29 @@ build_time_vars = {'ABIFLAGS': '',
  'PYTHON_FOR_REGEN': 'python3.8',
  'PYTHON_HEADERS': '\\',
  'PYTHON_OBJS': '\\',
- 'PY_BUILTIN_MODULE_CFLAGS': '-fno-strict-aliasing -Wsign-compare '
+ 'PY_BUILTIN_MODULE_CFLAGS': '-Wno-unused-result -Wsign-compare '
                              '-Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall '
-                             '-std=c99 -Werror=implicit-function-declaration  '
+                             '-std=c99 -Wextra -Wno-unused-result '
+                             '-Wno-unused-parameter '
+                             '-Wno-missing-field-initializers '
+                             '-Wstrict-prototypes '
+                             '-Werror=implicit-function-declaration  '
                              '-I/tmpfs/src/git/cpython3/Include/internal '
                              '-IObjects -IInclude -IPython -I. '
                              '-I/tmpfs/src/git/cpython3/Include '
                              '-DPy_BUILD_CORE_BUILTIN',
- 'PY_CFLAGS': '-fno-strict-aliasing -Wsign-compare -Wunreachable-code -DNDEBUG '
+ 'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG '
               '-g -fwrapv -O3 -Wall',
- 'PY_CFLAGS_NODIST': '-std=c99 -Werror=implicit-function-declaration  '
+ 'PY_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
+                     '-Wno-unused-parameter -Wno-missing-field-initializers '
+                     '-Wstrict-prototypes '
+                     '-Werror=implicit-function-declaration  '
                      '-I/tmpfs/src/git/cpython3/Include/internal',
  'PY_COERCE_C_LOCALE': 1,
- 'PY_CORE_CFLAGS': '-fno-strict-aliasing -Wsign-compare -Wunreachable-code '
-                   '-DNDEBUG -g -fwrapv -O3 -Wall -std=c99 '
+ 'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
+                   '-DNDEBUG -g -fwrapv -O3 -Wall -std=c99 -Wextra '
+                   '-Wno-unused-result -Wno-unused-parameter '
+                   '-Wno-missing-field-initializers -Wstrict-prototypes '
                    '-Werror=implicit-function-declaration  '
                    '-I/tmpfs/src/git/cpython3/Include/internal -IObjects '
                    '-IInclude -IPython -I. -I/tmpfs/src/git/cpython3/Include '
@@ -657,9 +688,11 @@ build_time_vars = {'ABIFLAGS': '',
  'PY_LDFLAGS_NODIST': '',
  'PY_SSL_DEFAULT_CIPHERS': 1,
  'PY_SSL_DEFAULT_CIPHER_STRING': 0,
- 'PY_STDMODULE_CFLAGS': '-fno-strict-aliasing -Wsign-compare '
-                        '-Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall '
-                        '-std=c99 -Werror=implicit-function-declaration  '
+ 'PY_STDMODULE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
+                        '-DNDEBUG -g -fwrapv -O3 -Wall -std=c99 -Wextra '
+                        '-Wno-unused-result -Wno-unused-parameter '
+                        '-Wno-missing-field-initializers -Wstrict-prototypes '
+                        '-Werror=implicit-function-declaration  '
                         '-I/tmpfs/src/git/cpython3/Include/internal -IObjects '
                         '-IInclude -IPython -I. '
                         '-I/tmpfs/src/git/cpython3/Include',
