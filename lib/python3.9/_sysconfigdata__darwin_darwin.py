@@ -13,29 +13,36 @@ build_time_vars = {'ABIFLAGS': '',
  'BINDIR': '/tmpfs/src/out/install/bin',
  'BINLIBDEST': '/tmpfs/src/out/install/lib/python3.9',
  'BLDLIBRARY': '-L. -lpython3.9',
- 'BLDSHARED': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
-              '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability '
-              "-s -Wl,-rpath,'@loader_path/../lib' -bundle -undefined "
-              'dynamic_lookup -arch arm64 -arch x86_64 -isysroot '
-              '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+ 'BLDSHARED': 'gcc -bundle -undefined dynamic_lookup -arch arm64 -arch x86_64 '
+              '-isysroot '
+              '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+              '-Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+              '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch x86_64 '
+              '-Werror=unguarded-availability -s '
+              "-Wl,-rpath,'@loader_path/../lib'",
  'BUILDEXE': '.exe',
  'BUILDPYTHON': 'python.exe',
  'BUILD_GNU_TYPE': 'x86_64-apple-darwin19.5.0',
  'BYTESTR_DEPS': '\\',
- 'CC': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
-       '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability -s '
-       "-Wl,-rpath,'@loader_path/../lib'",
+ 'CC': 'gcc',
  'CCSHARED': '',
  'CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g '
            '-fwrapv -O3 -Wall -arch arm64 -arch x86_64 -isysroot '
-           '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+           '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+           '-Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+           '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch x86_64 '
+           '-Werror=unguarded-availability',
  'CFLAGSFORSHARED': '',
  'CFLAGS_ALIASING': '-fno-strict-aliasing',
  'CFLAGS_NODIST': '',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
  'CONFIGURE_CFLAGS': '-arch arm64 -arch x86_64 -isysroot '
-                     '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+                     '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+                     '-Wno-unused-command-line-argument '
+                     '-mmacosx-version-min=10.9 '
+                     '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch x86_64 '
+                     '-Werror=unguarded-availability',
  'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                             '-Wno-unused-parameter '
                             '-Wno-missing-field-initializers '
@@ -43,24 +50,33 @@ build_time_vars = {'ABIFLAGS': '',
                             '-Werror=implicit-function-declaration '
                             '-fvisibility=hidden',
  'CONFIGURE_CPPFLAGS': '-isysroot '
-                       '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+                       '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
  'CONFIGURE_LDFLAGS': '-arch arm64 -arch x86_64 -isysroot '
-                      '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+                      '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+                      '-Wno-unused-command-line-argument '
+                      '-mmacosx-version-min=10.9 '
+                      '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch '
+                      'x86_64 -Werror=unguarded-availability -s '
+                      "-Wl,-rpath,'@loader_path/../lib'",
  'CONFIGURE_LDFLAGS_NODIST': '',
  'CONFIG_ARGS': "'--prefix=/tmpfs/src/out/install' '--enable-shared' "
-                "'--enable-universalsdk' '--with-universal-archs=universal2' "
-                "'ac_cv_func_utimensat=no' 'ac_cv_func_futimens=no' "
-                "'ac_cv_func_getentropy=no' 'ac_cv_func_clock_getres=no' "
-                "'ac_cv_func_clock_gettime=no' 'ac_cv_func_clock_settime=no' "
-                "'ac_cv_func_fstatat=no' 'ac_cv_func_faccessat=no' "
-                "'ac_cv_func_fchmodat=no' 'ac_cv_func_fchownat=no' "
-                "'ac_cv_func_linkat=no' 'ac_cv_func_fdopendir=no' "
-                "'ac_cv_func_mkdirat=no' 'ac_cv_func_renameat=no' "
-                "'ac_cv_func_unlinkat=no' 'ac_cv_func_readlinkat=no' "
-                "'ac_cv_func_symlinkat=no' 'ac_cv_func_openat=no' 'CC=cc "
-                '-Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
-                '-DMACOSX_DEPLOYMENT_TARGET=10.9 '
-                '-Werror=unguarded-availability -s '
+                "'--enable-universalsdk=/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk' "
+                "'--with-universal-archs=universal2' 'ac_cv_func_utimensat=no' "
+                "'ac_cv_func_futimens=no' 'ac_cv_func_getentropy=no' "
+                "'ac_cv_func_clock_getres=no' 'ac_cv_func_clock_gettime=no' "
+                "'ac_cv_func_clock_settime=no' 'ac_cv_func_fstatat=no' "
+                "'ac_cv_func_faccessat=no' 'ac_cv_func_fchmodat=no' "
+                "'ac_cv_func_fchownat=no' 'ac_cv_func_linkat=no' "
+                "'ac_cv_func_fdopendir=no' 'ac_cv_func_mkdirat=no' "
+                "'ac_cv_func_renameat=no' 'ac_cv_func_unlinkat=no' "
+                "'ac_cv_func_readlinkat=no' 'ac_cv_func_symlinkat=no' "
+                "'ac_cv_func_openat=no' "
+                "'CFLAGS=-Wno-unused-command-line-argument "
+                '-mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 '
+                "-arch arm64 -arch x86_64 -Werror=unguarded-availability' "
+                "'LDFLAGS=-Wno-unused-command-line-argument "
+                '-mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 '
+                '-arch arm64 -arch x86_64 -Werror=unguarded-availability -s '
                 "-Wl,-rpath,'\\''@loader_path/../lib'\\'''",
  'CONFINCLUDEDIR': '/tmpfs/src/out/install/include',
  'CONFINCLUDEPY': '/tmpfs/src/out/install/include/python3.9',
@@ -71,10 +87,8 @@ build_time_vars = {'ABIFLAGS': '',
                             'report"',
  'CPPFLAGS': '-IObjects -IInclude -IPython -I. '
              '-I/tmpfs/src/git/cpython3/Include -isysroot '
-             '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
- 'CXX': 'c++ -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
-        '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability -s '
-        "-Wl,-rpath,'@loader_path/../lib'",
+             '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
+ 'CXX': 'g++',
  'DESTDIRS': '/tmpfs/src/out/install /tmpfs/src/out/install/lib '
              '/tmpfs/src/out/install/lib/python3.9 '
              '/tmpfs/src/out/install/lib/python3.9/lib-dynload',
@@ -556,21 +570,23 @@ build_time_vars = {'ABIFLAGS': '',
  'INSTSONAME': 'libpython3.9.dylib',
  'IO_H': 'Modules/_io/_iomodule.h',
  'IO_OBJS': '\\',
- 'LDCXXSHARED': 'c++ -Wno-unused-command-line-argument '
-                '-mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 '
-                '-Werror=unguarded-availability -s '
-                "-Wl,-rpath,'@loader_path/../lib' -bundle -undefined "
-                'dynamic_lookup',
+ 'LDCXXSHARED': 'g++ -bundle -undefined dynamic_lookup',
  'LDFLAGS': '-arch arm64 -arch x86_64 -isysroot '
-            '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+            '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+            '-Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+            '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch x86_64 '
+            '-Werror=unguarded-availability -s '
+            "-Wl,-rpath,'@loader_path/../lib'",
  'LDFLAGS_NODIST': '',
  'LDLIBRARY': 'libpython3.9.dylib',
  'LDLIBRARYDIR': '',
- 'LDSHARED': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
-             '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability '
-             "-s -Wl,-rpath,'@loader_path/../lib' -bundle -undefined "
-             'dynamic_lookup -arch arm64 -arch x86_64 -isysroot '
-             '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+ 'LDSHARED': 'gcc -bundle -undefined dynamic_lookup -arch arm64 -arch x86_64 '
+             '-isysroot '
+             '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+             '-Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+             '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch x86_64 '
+             '-Werror=unguarded-availability -s '
+             "-Wl,-rpath,'@loader_path/../lib'",
  'LDVERSION': '3.9',
  'LIBC': '',
  'LIBDEST': '/tmpfs/src/out/install/lib/python3.9',
@@ -587,23 +603,20 @@ build_time_vars = {'ABIFLAGS': '',
  'LIBRARY_OBJS_OMIT_FROZEN': '\\',
  'LIBS': '-ldl   -framework CoreFoundation',
  'LIBSUBDIRS': 'tkinter tkinter/test tkinter/test/test_tkinter \\',
- 'LINKCC': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
-           '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability -s '
-           "-Wl,-rpath,'@loader_path/../lib'",
+ 'LINKCC': 'gcc',
  'LINKFORSHARED': '-Wl,-stack_size,1000000  -framework CoreFoundation',
  'LIPO_32BIT_FLAGS': '',
  'LLVM_PROF_ERR': 'no',
- 'LLVM_PROF_FILE': '',
- 'LLVM_PROF_MERGER': '',
+ 'LLVM_PROF_FILE': 'LLVM_PROFILE_FILE="code-%p.profclangr"',
+ 'LLVM_PROF_MERGER': '/usr/bin/xcrun llvm-profdata merge '
+                     '-output=code.profclangd *.profclangr',
  'LN': 'ln',
  'LOCALMODLIBS': '',
  'MACHDEP': 'darwin',
  'MACHDEP_OBJS': '',
  'MACHDESTLIB': '/tmpfs/src/out/install/lib/python3.9',
  'MACOSX_DEPLOYMENT_TARGET': '10.9',
- 'MAINCC': 'cc -Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
-           '-DMACOSX_DEPLOYMENT_TARGET=10.9 -Werror=unguarded-availability -s '
-           "-Wl,-rpath,'@loader_path/../lib'",
+ 'MAINCC': 'gcc',
  'MAJOR_IN_MKDEV': 0,
  'MAJOR_IN_SYSMACROS': 0,
  'MAKESETUP': '/tmpfs/src/git/cpython3/Modules/makesetup',
@@ -649,8 +662,8 @@ build_time_vars = {'ABIFLAGS': '',
                 'Parser/tokenizer.o',
  'PEGEN_HEADERS': '\\',
  'PEGEN_OBJS': '\\',
- 'PGO_PROF_GEN_FLAG': '',
- 'PGO_PROF_USE_FLAG': '',
+ 'PGO_PROF_GEN_FLAG': '-fprofile-instr-generate',
+ 'PGO_PROF_USE_FLAG': '-fprofile-instr-use=code.profclangd',
  'PLATLIBDIR': 'lib',
  'POBJS': '\\',
  'POSIX_SEMAPHORES_NOT_ENABLED': 0,
@@ -673,7 +686,11 @@ build_time_vars = {'ABIFLAGS': '',
  'PY_BUILTIN_MODULE_CFLAGS': '-Wno-unused-result -Wsign-compare '
                              '-Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall '
                              '-arch arm64 -arch x86_64 -isysroot '
-                             '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk '
+                             '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+                             '-Wno-unused-command-line-argument '
+                             '-mmacosx-version-min=10.9 '
+                             '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 '
+                             '-arch x86_64 -Werror=unguarded-availability '
                              '-std=c99 -Wextra -Wno-unused-result '
                              '-Wno-unused-parameter '
                              '-Wno-missing-field-initializers '
@@ -683,11 +700,14 @@ build_time_vars = {'ABIFLAGS': '',
                              '-I/tmpfs/src/git/cpython3/Include/internal '
                              '-IObjects -IInclude -IPython -I. '
                              '-I/tmpfs/src/git/cpython3/Include -isysroot '
-                             '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk '
+                             '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
                              '-DPy_BUILD_CORE_BUILTIN',
  'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG '
               '-g -fwrapv -O3 -Wall -arch arm64 -arch x86_64 -isysroot '
-              '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+              '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+              '-Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+              '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch x86_64 '
+              '-Werror=unguarded-availability',
  'PY_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                      '-Wno-unused-parameter -Wno-missing-field-initializers '
                      '-Wstrict-prototypes '
@@ -698,39 +718,53 @@ build_time_vars = {'ABIFLAGS': '',
  'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
                    '-DNDEBUG -g -fwrapv -O3 -Wall -arch arm64 -arch x86_64 '
                    '-isysroot '
-                   '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk '
+                   '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+                   '-Wno-unused-command-line-argument '
+                   '-mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 '
+                   '-arch arm64 -arch x86_64 -Werror=unguarded-availability '
                    '-std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter '
                    '-Wno-missing-field-initializers -Wstrict-prototypes '
                    '-Werror=implicit-function-declaration -fvisibility=hidden  '
                    '-I/tmpfs/src/git/cpython3/Include/internal -IObjects '
                    '-IInclude -IPython -I. -I/tmpfs/src/git/cpython3/Include '
                    '-isysroot '
-                   '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk '
+                   '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
                    '-DPy_BUILD_CORE',
  'PY_CORE_LDFLAGS': '-arch arm64 -arch x86_64 -isysroot '
-                    '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+                    '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+                    '-Wno-unused-command-line-argument '
+                    '-mmacosx-version-min=10.9 -DMACOSX_DEPLOYMENT_TARGET=10.9 '
+                    '-arch arm64 -arch x86_64 -Werror=unguarded-availability '
+                    "-s -Wl,-rpath,'@loader_path/../lib'",
  'PY_CPPFLAGS': '-IObjects -IInclude -IPython -I. '
                 '-I/tmpfs/src/git/cpython3/Include -isysroot '
-                '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+                '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
  'PY_FORMAT_SIZE_T': '"z"',
  'PY_LDFLAGS': '-arch arm64 -arch x86_64 -isysroot '
-               '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+               '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+               '-Wno-unused-command-line-argument -mmacosx-version-min=10.9 '
+               '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch x86_64 '
+               '-Werror=unguarded-availability -s '
+               "-Wl,-rpath,'@loader_path/../lib'",
  'PY_LDFLAGS_NODIST': '',
  'PY_SSL_DEFAULT_CIPHERS': 1,
  'PY_SSL_DEFAULT_CIPHER_STRING': 0,
  'PY_STDMODULE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
                         '-DNDEBUG -g -fwrapv -O3 -Wall -arch arm64 -arch '
                         'x86_64 -isysroot '
-                        '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk '
-                        '-std=c99 -Wextra -Wno-unused-result '
-                        '-Wno-unused-parameter -Wno-missing-field-initializers '
-                        '-Wstrict-prototypes '
+                        '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk '
+                        '-Wno-unused-command-line-argument '
+                        '-mmacosx-version-min=10.9 '
+                        '-DMACOSX_DEPLOYMENT_TARGET=10.9 -arch arm64 -arch '
+                        'x86_64 -Werror=unguarded-availability -std=c99 '
+                        '-Wextra -Wno-unused-result -Wno-unused-parameter '
+                        '-Wno-missing-field-initializers -Wstrict-prototypes '
                         '-Werror=implicit-function-declaration '
                         '-fvisibility=hidden  '
                         '-I/tmpfs/src/git/cpython3/Include/internal -IObjects '
                         '-IInclude -IPython -I. '
                         '-I/tmpfs/src/git/cpython3/Include -isysroot '
-                        '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+                        '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
  'Py_DEBUG': 0,
  'Py_ENABLE_SHARED': 1,
  'Py_HASH_ALGORITHM': 0,
@@ -793,7 +827,7 @@ build_time_vars = {'ABIFLAGS': '',
  'TM_IN_SYS_TIME': 0,
  'TZPATH': '/usr/share/zoneinfo:/usr/lib/zoneinfo:/usr/share/lib/zoneinfo:/etc/zoneinfo',
  'UNICODE_DEPS': '\\',
- 'UNIVERSALSDK': '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk',
+ 'UNIVERSALSDK': '/Applications/Xcode_12.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
  'UPDATE_FILE': 'python3 /tmpfs/src/git/cpython3/Tools/scripts/update_file.py',
  'USE_COMPUTED_GOTOS': 0,
  'VERSION': '3.9',
