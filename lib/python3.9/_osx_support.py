@@ -187,13 +187,7 @@ def _supports_universal_builds():
 
 def _supports_arm64_builds():
     """Returns True if arm64 builds are supported on this system"""
-    # There are two sets of systems supporting macOS/arm64 builds:
-    # 1. macOS 11 and later, unconditionally
-    # 2. macOS 10.15 with Xcode 12.2 or later
-    # For now the second category is ignored.
-    osx_version = _get_system_version_tuple()
-    return osx_version >= (11, 0) if osx_version else False
-
+    return True
 
 def _find_appropriate_compiler(_config_vars):
     """Find appropriate C compiler for extension module builds"""
