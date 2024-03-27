@@ -1,6 +1,18 @@
 package(default_visibility = ["//visibility:public"])
 
 filegroup(
+    name = "darwin-x86",
+    srcs = glob(
+        include = [
+            "bin/*",
+            "include/**",
+            "lib/**",
+            "share/**",
+        ],
+    ),
+)
+
+filegroup(
     name = "darwin-x86-bundle",
     srcs = glob(
         include = ["lib/python3.10/**"],
