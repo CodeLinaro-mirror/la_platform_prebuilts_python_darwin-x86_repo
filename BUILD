@@ -9,6 +9,9 @@ filegroup(
             "lib/**",
             "share/**",
         ],
+        exclude = [
+            "**/*.pyc",
+        ],
     ),
 )
 
