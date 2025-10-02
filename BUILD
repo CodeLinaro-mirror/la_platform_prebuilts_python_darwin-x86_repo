@@ -11,6 +11,7 @@ filegroup(
         ],
         exclude = [
             "**/*.pyc",
+            "lib/python3.11/**/__pycache__/**",
         ],
     ),
 )
@@ -21,6 +22,7 @@ filegroup(
         include = ["lib/python3.11/**"],
         exclude = [
             "lib/python3.11/**/*.pyc",
+            "lib/python3.11/**/__pycache__/**",
             "lib/python3.11/test/**",
             "lib/python3.11/unittest/**",
             "lib/python3.11/config/**",
