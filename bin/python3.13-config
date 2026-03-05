@@ -1,4 +1,4 @@
-#!/tmpfs/src/git/out/python3/install/bin/python3.13
+#!/Volumes/BuildData/foundry_bot/w/src/git/out/python3/install/bin/python3.13
 # -*- python -*-
 
 # Keep this script in sync with python-config.sh.in

@@ -1,5 +1,5 @@
 # See: man pkg-config
-prefix=/tmpfs/src/git/out/python3/install
+prefix=/Volumes/BuildData/foundry_bot/w/src/git/out/python3/install
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
